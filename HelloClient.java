@@ -24,8 +24,20 @@ public class HelloClient{
 
  	 // System.out.println(hello.say());
 	  System.out.println(hello.add(name, x, y, age));
+
 	  
-	  while(true) {;}
+
+	  //Take in commands like go, list, etc. now
+	  while (true){
+	  	  	System.out.println("You can enter commands like 'go -50 30: to move the clinet on an XY plane.");
+	  		System.out.println("You can also exit this application by typing 'quit'");
+	  		String message;
+	  		Scanner scan = new Scanner(System.in);
+
+		  	message = scan.nextLine();
+	  }
+	  
+	  //while(true) {;}
     } catch (Exception e) {
 	  System.out.println ("HelloClient exception:"+e);
     }  
