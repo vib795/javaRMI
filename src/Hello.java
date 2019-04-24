@@ -12,18 +12,18 @@ public class Hello extends UnicastRemoteObject
 
     //public Hello (String msg) throws RemoteException {
     public Hello (String name, int x, int y, int age) throws RemoteException {
-	  name = name;
-      x = x;
-      y = y;
-      age = age;
+      this.name = name;
+      this.x = x;
+      this.y = y;
+      this.age = age;
      // message = msg; 
     }
 
     public String add(String name, int x, int y, int age) throws RemoteException {
 	  name = name;
-      x = x;
-      y = y;
-      age = age;
+      this.x = x;
+      this.y = y;
+      this.age = age;
 
       return ("Data for this client stored..");
       //message = new String (message + s); 
@@ -31,7 +31,7 @@ public class Hello extends UnicastRemoteObject
     }
 
     public String move(String message) throws RemoteException{
-        return (message + " \n Server is moving the client to the new location...");
+        return (message + " \nServer is moving the client to the new location...");
     }
 
     public String setLocation(int x, int y){

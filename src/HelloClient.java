@@ -25,12 +25,14 @@ public class HelloClient{
 	  System.out.println(hello.add(name, x, y, age));
 	  //Take in commands like go, list, etc. now
 	  while (true){
+	  		System.out.println("\n");
 	  	  	System.out.println("List of commands you can use:.");
-	  		System.out.println("1. go -50 30");
-	  		System.out.println("2. get location");
-	  		System.out.println("3. list 30");
-	  		System.out.println("4. send user-id msg");
-	  		System.out.println("5. quit");
+	  		System.out.println("1. go (X, Y) without the brackets and the comma. - This moves the location of the client you're on, to the X,Y coordinates in an XY plane.");
+	  		System.out.println("2. get location - This gives the current location of your client in terms of X,Y. ");
+	  		System.out.println("3. list 30 - Lists the number of clients in 30m radius of your client.");
+	  		System.out.println("4. send user-id msg - Sends a message to a client of your choice.");
+	  		System.out.println("5. quit - Will exit the system.");
+	  		System.out.println("\n");
 
 	  		String message;
 	  		Scanner scan = new Scanner(System.in);
