@@ -21,12 +21,8 @@ public class HelloClient{
 	  HelloInterface hello = hellofactory.create(name,x,y,age);
 	  HelloCallbackInterface callbackobj = new HelloCallbackImpl();
 	  hellofactory.addCallBack(callbackobj); 
-
  	 // System.out.println(hello.say());
 	  System.out.println(hello.add(name, x, y, age));
-
-	  
-
 	  //Take in commands like go, list, etc. now
 	  while (true){
 	  	  	System.out.println("You can enter commands like 'go -50 30: to move the clinet on an XY plane.");
@@ -35,7 +31,17 @@ public class HelloClient{
 	  		Scanner scan = new Scanner(System.in);
 
 		  	message = scan.nextLine();
-		  	System.out.println(hello.move("This cline has been moved."));
+
+		  	String [] a = 	message.split(" ");
+		  	System.out.println(a[0]);
+
+		  	if (a[0] == "go"){
+		  		System.out.println(hello.move("Connecting to server now..."));
+				System.out.println(hello.setLocation(Integer.parseInt(a[1]),Integer.parseInt(a[2])));
+		  	}
+		  	else{continue;}
+
+//		  	System.out.println(hello.move("This client has been moved."));
 	  }
 	  
 	  //while(true) {;}

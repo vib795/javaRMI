@@ -31,7 +31,16 @@ public class Hello extends UnicastRemoteObject
     }
 
     public String move(String message) throws RemoteException{
-        return (message + " This is returned from server.");
+        return (message + " \n Server is moving the client to the new location...");
+    }
+
+    public String setLocation(int x, int y){
+        x = x; y = y;
+        return ("Tne new location has been updated with the values provided: " + x + " and " + y);
+    }
+
+    public String getLocation(int num){
+        return ("The current location on an X-Y plane is: " + x + " and " + y);
     }
 
     /*public String say( ) throws RemoteException {

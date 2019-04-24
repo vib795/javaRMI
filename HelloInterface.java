@@ -7,6 +7,10 @@ public interface HelloInterface extends Remote {
 	throws RemoteException;
 
 	public String move(String message) throws RemoteException;
+
+	public String setLocation(int x, int y) throws RemoteException;
+
+	public String getLocation(int num) throws RemoteException;
    /* public String say() 
 	throws RemoteException;
 */
