@@ -21,7 +21,6 @@ public class HelloClient{
 	  HelloInterface hello = hellofactory.create(name,x,y,age);
 	  HelloCallbackInterface callbackobj = new HelloCallbackImpl();
 	  hellofactory.addCallBack(callbackobj); 
- 	 // System.out.println(hello.say());
 	  System.out.println(hello.add(name, x, y, age));
 	  //Take in commands like go, list, etc. now
 	  while (true){

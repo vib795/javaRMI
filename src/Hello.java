@@ -2,21 +2,15 @@ import java.rmi.*; //Hello.java
 import java.rmi.server.*;
 
 public class Hello extends UnicastRemoteObject 
-			 implements HelloInterface {
-    //private String message;
+        implements HelloInterface {
+        private String name;
+        private int x,y,age;
 
-    private String name;
-    private int x,y,age;
-
-    //ArrayList<Hello> dt = new ArrayList(); 
-
-    //public Hello (String msg) throws RemoteException {
     public Hello (String name, int x, int y, int age) throws RemoteException {
       this.name = name;
       this.x = x;
       this.y = y;
       this.age = age;
-     // message = msg; 
     }
 
     public String add(String name, int x, int y, int age) throws RemoteException {
@@ -26,8 +20,6 @@ public class Hello extends UnicastRemoteObject
       this.age = age;
 
       return ("Data for this client stored..");
-      //message = new String (message + s); 
-	  //return message;  
     }
 
     public String move(String message) throws RemoteException{
@@ -42,8 +34,4 @@ public class Hello extends UnicastRemoteObject
     public String getLocation(String message){
         return (message + " The current location on an X-Y plane is: " + this.x + " and " + this.y);
     }
-
-    /*public String say( ) throws RemoteException {
-	  return message; 
-    }*/
 }
