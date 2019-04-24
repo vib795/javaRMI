@@ -10,7 +10,7 @@ public class HelloServer{
 
 	 System.out.println ("Server is ready");
     } catch (Exception e) {
-	 System.out.println ("Server failed:"+e);
+	 System.out.println ("Server failed: "+e);
     }
 	
   }

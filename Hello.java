@@ -30,6 +30,10 @@ public class Hello extends UnicastRemoteObject
 	  //return message;  
     }
 
+    public String move(String message) throws RemoteException{
+        return (message + " This is returned from server.");
+    }
+
     /*public String say( ) throws RemoteException {
 	  return message; 
     }*/

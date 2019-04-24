@@ -35,6 +35,7 @@ public class HelloClient{
 	  		Scanner scan = new Scanner(System.in);
 
 		  	message = scan.nextLine();
+		  	System.out.println(hello.move("This cline has been moved."));
 	  }
 	  
 	  //while(true) {;}
