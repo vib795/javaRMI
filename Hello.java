@@ -35,12 +35,12 @@ public class Hello extends UnicastRemoteObject
     }
 
     public String setLocation(int x, int y){
-        x = x; y = y;
+        this.x = x; this.y = y;
         return ("Tne new location has been updated with the values provided: " + x + " and " + y);
     }
 
-    public String getLocation(int num){
-        return ("The current location on an X-Y plane is: " + x + " and " + y);
+    public String getLocation(String message){
+        return (message + " The current location on an X-Y plane is: " + this.x + " and " + this.y);
     }
 
     /*public String say( ) throws RemoteException {

@@ -25,8 +25,13 @@ public class HelloClient{
 	  System.out.println(hello.add(name, x, y, age));
 	  //Take in commands like go, list, etc. now
 	  while (true){
-	  	  	System.out.println("You can enter commands like 'go -50 30: to move the clinet on an XY plane.");
-	  		System.out.println("You can also exit this application by typing 'quit'");
+	  	  	System.out.println("List of commands you can use:.");
+	  		System.out.println("1. go -50 30");
+	  		System.out.println("2. get location");
+	  		System.out.println("3. list 30");
+	  		System.out.println("4. send user-id msg");
+	  		System.out.println("5. quit");
+
 	  		String message;
 	  		Scanner scan = new Scanner(System.in);
 
@@ -34,17 +39,18 @@ public class HelloClient{
 
 		  	String [] a = 	message.split(" ");
 		  	System.out.println(a[0]);
-
-		  	if (a[0] == "go"){
+		  	if (a[0].equalsIgnoreCase("go")){
 		  		System.out.println(hello.move("Connecting to server now..."));
 				System.out.println(hello.setLocation(Integer.parseInt(a[1]),Integer.parseInt(a[2])));
 		  	}
-		  	else{continue;}
-
-//		  	System.out.println(hello.move("This client has been moved."));
-	  }
-	  
-	  //while(true) {;}
+		  	else if(a[0].equalsIgnoreCase("get") && a[1].equalsIgnoreCase("location")){
+		  		System.out.println(hello.getLocation("Fetching location now..."));
+		  	}
+		  	else if(a[0].equalsIgnoreCase("quit")){
+		  		System.exit(0);
+		  	}
+		  	else{ break;}
+	  	} 
     } catch (Exception e) {
 	  System.out.println ("HelloClient exception:"+e);
     }  
