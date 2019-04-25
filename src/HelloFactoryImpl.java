@@ -32,5 +32,14 @@ public class HelloFactoryImpl extends UnicastRemoteObject
           client.callMe("Server calling back -> number of clients =" + l2.size());
 	    }
 	  }
-	}  
+	}
+	//the below needs the calling client's x and y in parameter too. add that.
+	public synchronized void getNeighbours(int radius) throws RemoteException{
+		radius = radius;
+		for(HelloInterface i : l1){
+			System.out.println(i.getX()); 
+			System.out.println(i.getY());
+		}
+		
+	}
 }

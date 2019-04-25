@@ -39,7 +39,7 @@ public class HelloClient{
 				  	message = scan.nextLine();
 
 				  	String [] a = 	message.split(" ");
-				  	System.out.println(a[0]);
+				  	//System.out.println(a[0]);
 				  	if (a[0].equalsIgnoreCase("go")){
 				  		System.out.println(hello.move("Connecting to server now..."));
 						System.out.println(hello.setLocation(Integer.parseInt(a[1]),Integer.parseInt(a[2])));
@@ -50,9 +50,10 @@ public class HelloClient{
 				  	else if(a[0].equalsIgnoreCase("quit")){
 				  		System.exit(0);
 				  	}
-				  	/*else if(a[0].equalsIgnoreCase("list")){
-				  		System.out.println(hello.listNeighbours(int radius));
-				  	}*/
+				  	else if(a[0].equalsIgnoreCase("list")){
+				  		hellofactory.getNeighbours(Integer.parseInt(a[1]));
+				  		//System.out.println(hello.getNeighbours(Integer.parseInt(a[1])));
+				  	}
 				  	else{ break;}
 			  	} 
     } catch (Exception e) {

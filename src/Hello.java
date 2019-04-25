@@ -14,7 +14,7 @@ public class Hello extends UnicastRemoteObject
     }
 
     public String add(String name, int x, int y, int age) throws RemoteException {
-	  name = name;
+	    this.name = name;
       this.x = x;
       this.y = y;
       this.age = age;
@@ -35,7 +35,15 @@ public class Hello extends UnicastRemoteObject
         return (message + " The current location on an X-Y plane is: " + this.x + " and " + this.y);
     }
 
-    /*public int listNeighbours(int radius){
+    public int getX(){
+      return (this.x);
+    }
 
-    }*/
+    public int getY(){
+      return (this.y);
+    }
+
+    public String getNeighbours(int rad){
+      return ("Number of neighbours will come from here.");
+    }
 }

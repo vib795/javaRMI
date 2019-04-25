@@ -8,4 +8,7 @@ public interface HelloFactoryInterface extends Remote {
   
     public void addCallBack(HelloCallbackInterface callbackobj) 
 	throws RemoteException;
+
+	public void getNeighbours(int radius)
+	throws RemoteException;
 }
