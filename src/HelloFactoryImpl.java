@@ -1,6 +1,7 @@
 import java.rmi.*; //Hello.java
 import java.rmi.server.*;
 import java.util.LinkedList;
+import java.lang.Math.*;
 
 public class HelloFactoryImpl extends UnicastRemoteObject 
 			 implements HelloFactoryInterface {
@@ -33,13 +34,31 @@ public class HelloFactoryImpl extends UnicastRemoteObject
 	    }
 	  }
 	}
-	//the below needs the calling client's x and y in parameter too. add that.
-	public synchronized void getNeighbours(int radius) throws RemoteException{
+	//synchronized
+	public synchronized String getNeighbours(int radius, int x1, int y1, String mainName) throws RemoteException{
 		radius = radius;
-		for(HelloInterface i : l1){
-			System.out.println(i.getX()); 
-			System.out.println(i.getY());
-		}
+		x1 = x1; 
+		y1 = y1;
+		String name = mainName;
 		
+		String closeNodes = "";
+		String message = "";
+		int x;
+		int y;
+		
+		for(HelloInterface i: l1){
+			x = i.getX();
+			y = i.getY();
+		
+			Double dis=Math.sqrt((x-x1)*(x-x1) + (y-y1)*(y-y1));
+			if (dis<=radius){
+				closeNodes = i.getName();
+				message += name + " is closest to " + closeNodes + " distance " + dis + "\n";
+			}
+			else{
+				message = "Search radius not big enough for one of the clients from this client \n";
+			}
+		}
+		return message;
 	}
 }

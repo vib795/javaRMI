@@ -43,6 +43,10 @@ public class Hello extends UnicastRemoteObject
       return (this.y);
     }
 
+    public String getName(){
+      return (this.name);
+    }
+
     public String getNeighbours(int rad){
       return ("Number of neighbours will come from here.");
     }

@@ -17,4 +17,6 @@ public interface HelloInterface extends Remote {
 	public int getX() throws RemoteException;
 
 	public int getY() throws RemoteException;
+
+	public String getName() throws RemoteException;
 }

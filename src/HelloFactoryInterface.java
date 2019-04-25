@@ -9,6 +9,6 @@ public interface HelloFactoryInterface extends Remote {
     public void addCallBack(HelloCallbackInterface callbackobj) 
 	throws RemoteException;
 
-	public void getNeighbours(int radius)
+	public String getNeighbours(int radius, int x1, int y1, String mainName)
 	throws RemoteException;
 }

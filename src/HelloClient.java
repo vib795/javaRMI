@@ -51,7 +51,10 @@ public class HelloClient{
 				  		System.exit(0);
 				  	}
 				  	else if(a[0].equalsIgnoreCase("list")){
-				  		hellofactory.getNeighbours(Integer.parseInt(a[1]));
+				  		int p = hello.getX();
+				  		int q = hello.getY();
+				  		String mainName = hello.getName();
+				  		System.out.println(hellofactory.getNeighbours(Integer.parseInt(a[1]),p,q,mainName));
 				  		//System.out.println(hello.getNeighbours(Integer.parseInt(a[1])));
 				  	}
 				  	else{ break;}
