@@ -23,15 +23,19 @@ public class Hello extends UnicastRemoteObject
     }
 
     public String move(String message) throws RemoteException{
-        return (message + " \nServer is moving the client to the new location...");
+        return (message + " Server is moving the client to the new location...");
     }
 
     public String setLocation(int x, int y){
         this.x = x; this.y = y;
-        return ("Tne new location has been updated with the values provided: " + x + " and " + y);
+        return ("Tne new location has been updated with the values provided: " + this.x + " and " + this.y);
     }
 
     public String getLocation(String message){
         return (message + " The current location on an X-Y plane is: " + this.x + " and " + this.y);
     }
+
+    /*public int listNeighbours(int radius){
+
+    }*/
 }
