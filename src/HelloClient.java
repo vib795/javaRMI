@@ -16,7 +16,6 @@ public class HelloClient{
 			  System.out.println("Enter age");
 			  int age = sc.nextInt();
 
-			  //HelloInterface hello = (HelloInterface) Naming.lookup("//localhost/Hello"); 
 			  HelloFactoryInterface hellofactory = (HelloFactoryInterface) Naming.lookup("//localhost/HelloFactory"); 
 			  HelloInterface hello = hellofactory.create(name,x,y,age);
 			  HelloCallbackInterface callbackobj = new HelloCallbackImpl();
@@ -29,7 +28,7 @@ public class HelloClient{
 			  		System.out.println("1. go (X, Y) without the brackets and the comma. - This moves the location of the client you're on, to the X,Y coordinates in an XY plane.");
 			  		System.out.println("2. get location - This gives the current location of your client in terms of X,Y. ");
 			  		System.out.println("3. list 30 - Lists the number of clients in 30m radius of your client.");
-			  		System.out.println("4. send user-id msg - Sends a message to a client of your choice.");
+			  		System.out.println("4. chat - Sends a message to a clients.");
 			  		System.out.println("5. quit - Will exit the system.");
 			  		System.out.println("\n");
 
@@ -39,7 +38,6 @@ public class HelloClient{
 				  	message = scan.nextLine();
 
 				  	String [] a = 	message.split(" ");
-				  	//System.out.println(a[0]);
 				  	if (a[0].equalsIgnoreCase("go")){
 				  		System.out.println(hello.move("Connecting to server now..."));
 						System.out.println(hello.setLocation(Integer.parseInt(a[1]),Integer.parseInt(a[2])));
@@ -55,8 +53,18 @@ public class HelloClient{
 				  		int q = hello.getY();
 				  		String mainName = hello.getName();
 				  		System.out.println(hellofactory.getNeighbours(Integer.parseInt(a[1]),p,q,mainName));
-				  		//System.out.println(hello.getNeighbours(Integer.parseInt(a[1])));
 				  	}
+				  	else if(a[0].equalsIgnoreCase("chat"))
+				  	{
+                    	Scanner scan1 = new Scanner(System.in);
+                    	String fromName = hello.getName();
+                    	System.out.println("Enter client's name:");
+                    	String clientName = scan1.nextLine();
+                    	System.out.println("Enter a message to send:");
+                    	String messageToSend = scan1.nextLine();
+                    	hellofactory.broadcastMessage(fromName, clientName, messageToSend, callbackobj);
+
+					}
 				  	else{ break;}
 			  	} 
     } catch (Exception e) {

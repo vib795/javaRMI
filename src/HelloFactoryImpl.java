@@ -34,7 +34,7 @@ public class HelloFactoryImpl extends UnicastRemoteObject
 	    }
 	  }
 	}
-	//synchronized
+
 	public synchronized String getNeighbours(int radius, int x1, int y1, String mainName) throws RemoteException{
 		radius = radius;
 		x1 = x1; 
@@ -61,4 +61,12 @@ public class HelloFactoryImpl extends UnicastRemoteObject
 		}
 		return message;
 	}
-}
+
+	public synchronized void broadcastMessage(String fromName, String clientname , String message, HelloCallbackInterface callbackobj) throws RemoteException {
+        String m = ("Hi from "+ fromName + " to " + clientname + " : message sent to you is " + message);
+        for(int i = 0; i < l2.size(); i++){
+        	HelloCallbackInterface client = (HelloCallbackInterface) l2.get(i);
+        	client.callMe(m);
+        }
+    }
+ }

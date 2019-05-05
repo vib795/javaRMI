@@ -11,4 +11,6 @@ public interface HelloFactoryInterface extends Remote {
 
 	public String getNeighbours(int radius, int x1, int y1, String mainName)
 	throws RemoteException;
+
+	public void broadcastMessage(String fromName, String name,String message, HelloCallbackInterface callbackobj) throws RemoteException;
 }
